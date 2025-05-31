@@ -1,0 +1,80 @@
+<div class="app-container">
+    <app-header></app-header>
+  
+    <div class="image-wrapper" style="position: relative; text-align: center;">
+      <img
+        src="/assets/img/it-is-trip.png"
+        alt="Trip"
+        class="trip-image"
+        style="width: 100%; height: auto; max-height: 400px;"
+      />
+  
+      <!-- Search Bar Overlapping the Image -->
+      <div
+        style="
+          position: absolute;
+          bottom: -100px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-wrap: wrap;
+          gap: 16px;
+          align-items: center;
+          background: white;
+          border-radius: 10px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          padding: 16px;
+          width: 90%;
+          max-width: 1400px;
+          z-index: 2;
+        "
+      >
+        <!-- From where -->
+        <mat-form-field style="flex: 1 1 20%; min-width: 200px;">
+          <mat-icon matPrefix>flight_takeoff</mat-icon>
+          <mat-label>From where?</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+        <!-- Where to -->
+        <mat-form-field style="flex: 1 1 20%; min-width: 200px;">
+          <mat-icon matPrefix>flight_land</mat-icon>
+          <mat-label>Where to?</mat-label>
+          <input matInput />
+        </mat-form-field>
+  
+        <!-- Date Range Picker -->
+        <mat-form-field style="flex: 1 1 25%; min-width: 240px;">
+          <mat-icon matPrefix (click)="picker.open()" style="cursor: pointer;">calendar_today</mat-icon>
+          <!-- <mat-label>Departure - Return</mat-label> -->
+          <mat-date-range-input [rangePicker]="picker" (click)="picker.open()">
+            <input matStartDate  />
+            <input matEndDate  />
+          </mat-date-range-input>
+        </mat-form-field>
+  
+        <!-- Date Range Picker Control (outside of flex) -->
+        <mat-date-range-picker #picker></mat-date-range-picker>
+  
+        <!-- Passengers -->
+        <mat-form-field style="flex: 1 1 15%; min-width: 180px;">
+          <mat-icon matPrefix>person</mat-icon>
+          <input matInput placeholder="1 adult" />
+        </mat-form-field>
+  
+        <!-- Search Button -->
+        <button
+          mat-raised-button
+          color="primary"
+          style="height: 56px; flex: 1 1 10%; min-width: 120px;"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  
+    <div style="margin-top: 160px;"></div> <!-- Adjusted for space below search bar -->
+  
+    <router-outlet></router-outlet>
+  </div>
+  

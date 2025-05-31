@@ -1,0 +1,66 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* full viewport height */
+  }
+  
+  .content {
+    flex: 1; /* fills remaining space between header and footer */
+  }
+  
+
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 40px; /* Adjust top spacing as needed */
+  }
+  
+  .trip-image {
+    width: 40%;
+    max-width: 400px;
+    height: 142px;
+    object-fit: contain;
+  }
+  
+/* Outline border color when focused */
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    stroke: blue !important;
+  }
+  
+  /* Outline border color normal */
+  .mat-form-field-appearance-outline .mat-form-field-outline {
+    stroke: black; /* or blue if you want */
+  }
+  
+  /* Outline border color for invalid state */
+  .mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-thick {
+    stroke: blue !important;
+  }
+  
+  /* Label and icon color on focus */
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-label,
+  .mat-form-field-appearance-outline.mat-focused .mat-icon.mat-prefix {
+    color: blue !important;
+  }
+  
+
+  .cdk-overlay-container {
+    z-index: 2000 !important;
+    position: fixed !important;
+    top: 340px;
+    left: 850px;
+    min-width: 360px;
+  }
+  body, html {
+    overflow: visible !important;
+  }
+  
+  .mat-datepicker-content .mat-calendar {
+    width: 350px !important;
+    height: 354px !important;
+}

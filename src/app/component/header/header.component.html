@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" class="header-toolbar">
+    <!-- Logo -->
+    <div class="logo-section">
+      <img src="assets/img/logo.png" routerLink="" alt="Logo" style="height: 30px; width: 30px; cursor: pointer;">
+      <img src="assets/img/TRIPBuddy.png" routerLink="" alt="logo-with-name"  style="margin-left: 10px; width: 100px; cursor: pointer;">
+    </div>
+  
+    <div>
+    <!-- Navigation Menu -->
+<!-- Use this if 'expenses' is under 'dashboard' route -->
+<span class="menu-item" routerLink="/dashboard/expenses" routerLinkActive="active" (click)="ExpenseCalled()">Expense Manager</span>
+
+    <a class="menu-item" routerLink="'/trips'">Trip Details</a>
+</div>  
+    <!-- Spacer -->
+    <span class="spacer"></span>
+  
+    <!-- Profile Menu -->
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item routerLink="/auth/login">
+        <mat-icon>login</mat-icon>
+        <span>Login</span>
+      </button>
+      <button mat-menu-item routerLink="/auth/register">
+        <mat-icon>person_add</mat-icon>
+        <span>Register</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+  

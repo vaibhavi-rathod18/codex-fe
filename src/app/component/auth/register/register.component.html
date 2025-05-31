@@ -1,0 +1,70 @@
+<div class="modal-backdrop">
+  <div class="modal-container">
+    <div class="modal-left">
+      <img src="assets/images/sydney-opera-house.png" alt="Opera House" />
+    </div>
+
+    <div class="modal-right">
+      <button class="close-btn" (click)="closeModal()">×</button>
+
+      <h2>Sign Up</h2>
+
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input
+          type="text"
+          formControlName="name"
+          placeholder="Name"
+          [class.invalid]="submitted && f['name'].errors"
+        />
+        <div *ngIf="submitted && f['name'].errors" class="error">
+          <small *ngIf="f['name'].errors['required']">Name is required</small>
+        </div>
+
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Email"
+          [class.invalid]="submitted && f['email'].errors"
+        />
+        <div *ngIf="submitted && f['email'].errors" class="error">
+          <small *ngIf="f['email'].errors['required']">Email is required</small>
+          <small *ngIf="f['email'].errors['email']">Invalid email format</small>
+        </div>
+
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+          [class.invalid]="submitted && f['password'].errors"
+        />
+        <div *ngIf="submitted && f['password'].errors" class="error">
+          <small *ngIf="f['password'].errors['required']"
+            >Password is required</small
+          >
+          <small *ngIf="f['password'].errors['minlength']">
+            Password must be at least 6 characters
+          </small>
+        </div>
+
+        <input
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Confirm Password"
+          [class.invalid]="submitted && f['confirmPassword'].errors"
+        />
+        <div *ngIf="submitted && f['confirmPassword'].errors" class="error">
+          <small *ngIf="f['confirmPassword'].errors['required']"
+            >Confirm password is required</small
+          >
+          <small *ngIf="f['confirmPassword'].errors['mismatch']"
+            >Passwords do not match</small
+          >
+        </div>
+
+        <button type="submit" class="submit-btn">Sign Up</button>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      </form>
+    </div>
+  </div>
+</div>

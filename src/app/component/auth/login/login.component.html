@@ -1,0 +1,45 @@
+<div class="modal-backdrop">
+  <div class="modal-container">
+    <div class="modal-left">
+      <img src="assets/images/sydney-opera-house.png" alt="Opera House" />
+    </div>
+
+    <div class="modal-right">
+      <button class="close-btn" (click)="closeModal()">×</button>
+
+      <h2>Log In</h2>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <input
+          type="email"
+          formControlName="email"
+          placeholder="Email"
+          [class.invalid]="submitted && f['email'].errors"
+        />
+        <div *ngIf="submitted && f['email'].errors" class="error">
+          <small *ngIf="f['email'].errors['required']">Email is required</small>
+          <small *ngIf="f['email'].errors['email']">Invalid email format</small>
+        </div>
+
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+          [class.invalid]="submitted && f['password'].errors"
+        />
+        <div *ngIf="submitted && f['password'].errors" class="error">
+          <small *ngIf="f['password'].errors['required']"
+            >Password is required</small
+          >
+          <small *ngIf="f['password'].errors['minlength']">
+            Password must be at least 6 characters
+          </small>
+        </div>
+
+        <button type="submit" class="submit-btn">Log In</button>
+
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      </form>
+    </div>
+  </div>
+</div>

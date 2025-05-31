@@ -1,0 +1,34 @@
+.header-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff !important; /* blue or any hex you want */
+    color: black;
+  }
+  
+  .logo-section {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .menu-item {
+    margin: 0 15px;
+    cursor: pointer !important;            /* Shows hand icon */
+    font-weight: normal;        /* Use normal instead of numeric */
+    color: black;
+    font-size: 14px;            /* Smaller text */
+    text-decoration: none;      /* Optional: remove underline */
+  }
+    
+  .menu-item.active {
+    text-decoration: underline;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+
+  .mat-toolbar-row, .mat-toolbar-single-row {
+    height: 60px;
+}
